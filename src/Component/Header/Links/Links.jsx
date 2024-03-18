@@ -29,7 +29,7 @@ const Links = () => {
     const isAdmin = true;
     const [open, setOpen] = useState(false);
     return (
-        <div className=''>
+        <div>
             <div className='flex items-center gap-10 justify-center max-[950px]:gap-7 max-md:text-sm max-[680px]:hidden'>
                 {links.map((link => (
                     <NavLinks item={link} key={link.title} />
@@ -49,11 +49,11 @@ const Links = () => {
                     )
                 }
             </div>
-            <div className='min-[680px]:hidden flex justify-center items-center'>
+            <div className='min-[680px]:hidden flex justify-center items-center max-[325px]:-mr-6'>
                 {!open ? <HiMenuAlt3 className='text-3xl cursor-pointer' onClick={() => setOpen((prev) => !prev)} />
                 : <IoClose className='text-3xl cursor-pointer' onClick={() => setOpen((prev) => !prev)} />}
                 {open &&
-                    <div className='absolute top-[65px] right-0 p-3 flex flex-col gap-7 justify-center items-center w-[60%] bg-black min-h-[91vh]'>
+                    <div className='absolute top-[65px] right-0 p-3 flex flex-col gap-7 justify-center items-center w-[60%] bg-black min-h-screen'>
                         {links.map((link => (
                             <NavLinks item={link} key={link.title} />
                         )))}
