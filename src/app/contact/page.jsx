@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Contact = () => {
   return (
-    <div className='flex justify-between items-center max-w-6xl mx-auto gap-14 p-5'>
+    <div className='flex justify-between items-center max-w-6xl mx-auto gap-14 p-5 text-white'>
       <div className='max-w-2xl mx-auto'>
         <div className=' relative w-[700px] h-[500px] max-[1255px]:w-[500px] max-[1255px]:h-[500px] max-[950px]:hidden z-[-1]'>
           <Image src='/contect.svg' alt='' fill />

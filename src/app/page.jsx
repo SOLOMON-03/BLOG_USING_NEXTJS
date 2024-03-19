@@ -21,7 +21,7 @@ const HomePage = () => {
       </div>
       <div className='max-w-6xl'>
         <div className='relative w-[500px] h-[500px] max-[930px]:w-[400px] max-[930px]:h-[400px] max-[425px]:w-[300px] max-[425px]:h-[300px] z-[-1]'>
-          <Image src='/hero.gif' alt='' fill />
+          <Image src='/hero.gif' alt='' fill unoptimized={true}/>
         </div>
       </div>
     </div>
