@@ -41,7 +41,7 @@ const BlogPage = () => {
             Startups often bring disruptive innovations to the market, while established companies leverage their resources and expertise
             to scale and expand their offerings.
           </p>
-          <Link href='/blog' className='flex items-center gap-2 text-[#6C63FF]'><HiArrowLeft/>Retrun Back</Link>
+          <Link href='/blog' className='flex items-center gap-2 text-[#6C63FF]'><HiArrowLeft/>Return Back</Link>
         </div>
       </div>
     </div>
