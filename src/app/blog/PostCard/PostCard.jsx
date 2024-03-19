@@ -15,7 +15,7 @@ const PostCard = () => {
       <div className='p-2 flex flex-col gap-2'>
         <h1 className='text-2xl text-[#6C63FF] font-bold'>Technology</h1>
         <p className='w-[90%] text-sm'>Technology companies operate in various sectors, including information technology (IT),
-          telecommunications, healthcare, finance, entertainment, automotive, aerospace, and manufacturing, among others.
+          telecommunications, healthcare, finance, entertainment, automotive, aerospace, and manufacturing, among others
         </p>
         <Link href='/blog/post' className='underline text-[#a19df1]'>Read More..</Link>
       </div>
