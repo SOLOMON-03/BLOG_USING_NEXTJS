@@ -1,5 +1,5 @@
 import React from 'react'
-import PostCard from '@/Component/postCard/PostCard'
+import PostCard from '@/Component/PostCard/PostCard'
 
 const Blog = () => {
   return (
