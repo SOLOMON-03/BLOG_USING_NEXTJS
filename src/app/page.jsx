@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-
+import Link from 'next/link'
+  
 const HomePage = () => {
   return (
     <div className='flex justify-between items-center max-w-7xl mx-auto gap-10 p-5 max-[730px]:flex-col-reverse'>
       <div className='max-w-2xl mx-auto'>
         <div className='flex flex-col gap-7'>
-          <h1 className='text-5xl text-[#6C63FF] font-bold  max-[1125px]:text-4xl max-[370px]:text-2xl'>Creative Thoughts Agency.</h1>
+          <h1 className='text-7xl text-[#6C63FF] font-bold  max-[1125px]:text-4xl max-[370px]:text-2xl'>Creative Thoughts Agency.</h1>
           <p className='text-sm text-justify max-[430px]:text-[12px]'>
           Technology companies offer a wide range of products and services, such as software, hardware, electronics, 
           telecommunications, internet services, cloud computing, artificial intelligence (AI), cybersecurity, and more.
@@ -14,8 +15,8 @@ const HomePage = () => {
           development (R&D) to create cutting-edge technologies and improve existing products and services.
           </p>
           <div className='flex gap-10 '>
-            <button className='bg-[#6C63FF] text-xl px-4 py-2 rounded-3xl font-semibold max-[775px]:text-base max-[425px]:text-sm'>Learn More</button>
-            <button className='bg-[#6C63FF] text-xl px-4 py-2 rounded-3xl font-semibold max-[775px]:text-base max-[425px]:text-sm'>Contact</button>
+            <button className='bg-[#6C63FF] text-xl px-4 py-2 rounded-3xl font-semibold max-[775px]:text-base max-[425px]:text-sm'><Link href="/blog">Learn More</Link></button>
+            <button className='bg-[#6C63FF] text-xl px-4 py-2 rounded-3xl font-semibold max-[775px]:text-base max-[425px]:text-sm'><Link href="/contact">Contact</Link></button>
           </div>
         </div>
       </div>
