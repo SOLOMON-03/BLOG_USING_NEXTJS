@@ -7,7 +7,7 @@ import img from '@/../../public/noimage.svg'
 const PostCard = ({ post }) => {
   return (
     <div className="flex flex-col p-2 ">
-      <div className="flex bg-white rounded-lg">
+      <div className="flex bg-[#5E0094]  rounded-lg">
         {<div className=" relative w-[300px] h-[300px] z-[1] object-cover">
           <Suspense
             fallback={

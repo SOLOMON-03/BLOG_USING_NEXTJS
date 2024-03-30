@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-const userSchema = new mongoose.Schema(
+import Mongoose from "mongoose";
+const userSchema = new Mongoose.Schema(
     {
         username: {
             type: String,
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
-const postSchema = new mongoose.Schema(
+const postSchema = new Mongoose.Schema(
     {
         title: {
             type: String,
@@ -54,5 +54,5 @@ const postSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-export const User = mongoose.models.User || mongoose.model("User", userSchema);
-export const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
+export const User = Mongoose.models.User || Mongoose.model("User", userSchema);
+export const Post = Mongoose.models.Post || Mongoose.model("Post", postSchema);

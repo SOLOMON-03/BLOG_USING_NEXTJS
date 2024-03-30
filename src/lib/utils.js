@@ -1,16 +1,14 @@
 import mongoose from "mongoose";
 
-const connection ={};
+const connection = {};
 
-export const ConnectDB = async() =>{
-    try {
-        if(connection.isConnected){
-            console.log("using existing connection");
-            return;
-        }
-        const db= await mongoose.connect(process.env.MONGO);
-        connection.isConnected = db.connection[0];
-    } catch (error) {
-        throw new Error(error);
-    }
-} 
+export const ConnectDB = async () => {
+  mongoose
+    .connect(process.env.MONGO)
+    .then(() => {
+      console.log("Connected to MongoDB!");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
