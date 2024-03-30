@@ -1,6 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-
+export const metadata = {
+  title: "About page",
+  description: "About page",
+};
 const About = () => {
   return (
     <div className='flex justify-between items-center max-w-6xl mx-auto gap-10 p-5 max-[730px]:flex-col'>

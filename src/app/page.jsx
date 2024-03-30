@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-  
 const HomePage = () => {
   return (
     <div className='flex justify-between items-center max-w-7xl mx-auto gap-10 p-5 max-[730px]:flex-col-reverse'>
