@@ -3,19 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowLeft } from 'react-icons/hi';
 import PostUser from '@/Component/postUser/PostUser';
-import { getPost } from '@/lib/data';
-// const getData = async (slug)=>{
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+// import { getPost } from '@/lib/data';
+const getData = async (slug)=>{
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
-//   if(!res.ok){
-//     throw new Error("Something went wrong");
-//   }
+  if(!res.ok){
+    throw new Error("Something went wrong");
+  }
 
-//   return res.json();
-// }
+  return res.json();
+}
 export const generateMetadata = async ({params})=>{
   const {slug} = params;
-  const post = await getPost(slug);
+  const post = await getData(slug);
   return {
     title: post.title,
     description: post.desc,
@@ -23,7 +23,7 @@ export const generateMetadata = async ({params})=>{
 }
 const BlogPage = async ({params}) => {
   const {slug} = params;
-  const post = await getPost(slug);
+  const post = await getData(slug);
   return (
     <div className='flex max-w-9xl mx-auto gap-5 p-3 max-[600px]:flex-col'>
       <div className='relative w-[550px] max-md:h-[500px] h-[600px] z-[-1] object-cover max-[600px]:w-[100%] max-[600px]:h-[400px]'>

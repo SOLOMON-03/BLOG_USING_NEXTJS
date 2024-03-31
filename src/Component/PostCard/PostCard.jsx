@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
   return (
     <div className="flex flex-col p-2 ">
       <div className="flex bg-[#5E0094]  rounded-lg">
-        {<div className=" relative w-[300px] h-[300px] z-[1] object-cover">
+        <div className=" relative w-[300px] h-[300px] z-[1] object-cover">
           <Suspense
             fallback={
               <div className="flex self-center">
@@ -19,7 +19,6 @@ const PostCard = ({ post }) => {
             <Image src={post.img || img} alt="" fill className=" rounded-tl-lg rounded-bl-lg" />
           </Suspense>
         </div>
-        }
         <span className="-rotate-90 m-auto text-[12px] text-nowrap text-[#6C63FF] font-semibold">
         {post.createdAt.toString().slice(4,16)}
         </span>
