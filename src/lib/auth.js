@@ -68,4 +68,5 @@ export const {
             return true;
         },
     },
+    secret: process.env.AUTH_SECRET,
 });
