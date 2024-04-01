@@ -15,8 +15,6 @@ const userSchema = new Mongoose.Schema(
         },
         password: {
             type: String,
-            required: true,
-            min: 6,
         },
         avatar: {
             type: String,
@@ -54,5 +52,5 @@ const postSchema = new Mongoose.Schema(
     { timestamps: true }
 );
 
-export const User = Mongoose.models.User || Mongoose.model("User", userSchema);
-export const Post = Mongoose.models.Post || Mongoose.model("Post", postSchema);
+export const User = Mongoose.models?.User || Mongoose.model("User", userSchema);
+export const Post = Mongoose.models?.Post || Mongoose.model("Post", postSchema);
