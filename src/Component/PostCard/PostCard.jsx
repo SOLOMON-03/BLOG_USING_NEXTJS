@@ -20,7 +20,7 @@ const PostCard = ({ post }) => {
           </Suspense>
         </div>
         <span className="-rotate-90 m-auto text-[12px] text-nowrap text-[#6C63FF] font-semibold">
-        {post.createdAt.toString().slice(4,16)}
+        {post.createdAt.toString().slice(0,10)}
         </span>
       </div>
       <div className="p-2 flex flex-col gap-2">
