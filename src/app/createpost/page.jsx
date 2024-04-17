@@ -8,7 +8,6 @@ const CreatePost = () => {
             <input type='text' name='title' placeholder='Enter a Title' />
             <input type='text' name='desc' placeholder='Enter a Description' />
             <input type='text' name='slug' placeholder='Enter a Title' />
-            <input type='text' name='userId' placeholder='Enter a Id' />
             <input type='file' name='img' />
             <button className='text-white'>Create</button>
         </form>

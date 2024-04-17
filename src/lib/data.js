@@ -26,7 +26,7 @@ export const getPost = async (slug)=>{
 export const getUser = async (id)=>{
     try {
         ConnectDB();
-        const user = User.findById(id);
+        const user = User.findById({id});
         return user;
     } catch (error) {
         console.log(error)

@@ -1,15 +1,35 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { ConnectDB } from "./utils";
 import { User } from "./models";
 import bcryptjs from 'bcryptjs';
+import { authConfig } from "./auth.config";
+
+const login = async(credentials) =>{
+    try {
+        ConnectDB();
+        const user = await User.findOne({username: credentials.username});
+
+        if(!user) throw new Error("Wrong credentials!");
+
+        const isPasswordValid = bcryptjs.compareSync(credentials.password, user.password);
+        if(!isPasswordValid) throw new Error("Wrong password!");
+        return user;
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to login!");
+    }
+}
+
 export const {
     handlers: { GET, POST },
     auth,
     signIn,
     signOut,
 } = NextAuth({
+    ...authConfig,
     providers: [
         GitHub({
             clientId: process.env.GITHUB_ID,
@@ -19,6 +39,16 @@ export const {
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
         }),
+        CredentialsProvider({
+            async authorize(credentials){
+                try {
+                    const user = await login(credentials);
+                    return user;
+                } catch (error) {
+                    return null;
+                }
+            }
+        })
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
@@ -68,5 +98,6 @@ export const {
             return true;
         },
     },
+    ...authConfig.callbacks,
     secret: process.env.AUTH_SECRET,
 });

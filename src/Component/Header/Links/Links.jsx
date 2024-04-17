@@ -26,7 +26,6 @@ const links = [
     },
 ]
 const Links = ({ session }) => {
-    const isAdmin = true;
     const [open, setOpen] = useState(false);
     return (
         <div>
@@ -34,7 +33,7 @@ const Links = ({ session }) => {
                 {links.map((link => (
                     <NavLinks item={link} key={link.title} />
                 )))}
-                {session?.user ?
+                {/* {session?.user ?
                     (
                         <>
                             {session?.user.isAdmin && <NavLinks item={{ title: "Admin", path: "/admin" }} />}
@@ -49,7 +48,17 @@ const Links = ({ session }) => {
                     (
                         <NavLinks item={{ title: "Login", path: "/login" }} />
                     )
-                }
+                } */}
+                {session?.user ? (
+                    <>
+                        {session.user?.isAdmin && <NavLinks item={{ title: "Admin", path: "/admin" }} />}
+                        <form action={handleLogout}>
+                            <button className='bg-white max-md:text-sm font-semibold text-black px-4 py-2 rounded-xl border border-white hover:bg-black hover:text-white transition-all duration-700 ease-in-out' >Logout</button>
+                        </form>
+                    </>
+                ) : (
+                    <NavLinks item={{ title: "Login", path: "/login" }} />
+                )}
             </div>
             <div className='min-[680px]:hidden flex justify-center items-center max-[325px]:-mr-6'>
                 {!open ? <HiMenuAlt3 className='text-3xl cursor-pointer' onClick={() => setOpen((prev) => !prev)} />

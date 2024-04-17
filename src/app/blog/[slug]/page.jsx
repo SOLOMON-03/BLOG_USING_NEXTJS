@@ -5,8 +5,7 @@ import { HiArrowLeft } from 'react-icons/hi';
 import PostUser from '@/Component/postUser/PostUser';
 // import { getPost } from '@/lib/data';
 const getData = async (slug)=>{
-  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
-
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`,  {next:{revalidate:3600}});
   if(!res.ok){
     throw new Error("Something went wrong");
   }
@@ -33,10 +32,10 @@ const BlogPage = async ({params}) => {
         <h1 className='text-5xl text-[#6C63FF] font-bold max-md:text-3xl'>{post.title}</h1>
         <div className='flex gap-6 items-center'>
           
-          <PostUser userId={post.userId} />
+          {/* <PostUser userId={post.userId} /> */}
           <div className='flex flex-col'>
             <span className='text-sm text-gray-400 p-1 max-md:text-[12px]'>Published</span>
-            <span className='text-sm text-white p-1 max-md:text-[12px]'>{post.createdAt.toString().slice(4,16)}</span>
+            <span className='text-sm text-white p-1 max-md:text-[12px]'>{post.createdAt.toString().slice(0,10)}</span>
           </div>
         </div>
         <div>
