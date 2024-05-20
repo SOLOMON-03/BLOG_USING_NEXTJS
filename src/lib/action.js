@@ -4,6 +4,7 @@ import { Post, User } from "./models";
 import { ConnectDB } from "./utils";
 import bcryptjs from "bcryptjs";
 import { redirect } from "next/navigation";
+import { isRedirectError } from "next/dist/client/components/redirect"
 
 export const addPost = async (formData) => {
     const { title, desc, slug, img, userId } = Object.fromEntries(formData);
@@ -70,6 +71,6 @@ export const login = async (previousState, formData) => {
         if(error.message.includes("CredentialsSignin")){
             return { error: "Invalid username or password"};
         }
-        throw error;
+        if(isRedirectError(error)) throw error;
     }
 };
