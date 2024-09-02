@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connection = {};
 
 export const ConnectDB = async () => {
-  mongoose
+  await mongoose
     .connect(process.env.MONGO)
     .then(() => {
       console.log("Connected to MongoDB!");

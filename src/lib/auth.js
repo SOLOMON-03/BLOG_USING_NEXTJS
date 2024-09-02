@@ -9,8 +9,9 @@ import { authConfig } from "./auth.config";
 
 const login = async(credentials) =>{
     try {
-        ConnectDB();
+        await ConnectDB();
         const user = await User.findOne({username: credentials.username});
+    
 
         if(!user) throw new Error("Wrong credentials!");
 
@@ -51,9 +52,9 @@ export const {
         })
     ],
     callbacks: {
-        async signIn({ user, account, profile }) {
+        async signIn({ account, profile }) {
             if (account.provider === "github") {
-                ConnectDB();
+                await ConnectDB();
                 try {
                     const user = await User.findOne({ email: profile.email });
                     if (!user) {
@@ -74,9 +75,12 @@ export const {
                     return false;
                 }
             } else if (account.provider === "google") {
-                ConnectDB();
+                await ConnectDB();
                 try {
                     const user = await User.findOne({ email: profile.email });
+                    console.log('====================================');
+                    console.log(user);
+                    console.log('====================================');
                     if (!user) {
                         const generatedPassword =
                             Math.random().toString(36).slice(-8) +

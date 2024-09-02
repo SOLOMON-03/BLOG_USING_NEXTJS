@@ -4,6 +4,7 @@ import { auth } from '@/lib/auth'
 
 const Header = async() => {
   const session = await auth();
+  console.log(session,"sygdfjhsjfv");
   return (
     <div className='mx-2 flex justify-between items-center p-3 text-white font-semibold'>
         <div>

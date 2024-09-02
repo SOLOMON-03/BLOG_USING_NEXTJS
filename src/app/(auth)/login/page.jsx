@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import LoginForm from "@/Component/LoginForm/LoginForm";
 
-const Login = async () => {
+const Login =  () => {
   return (
     <div className="max-w-6xl mx-auto">
       <h1 className="text-center text-4xl font-bold text-[#6C63FF] p-4">
