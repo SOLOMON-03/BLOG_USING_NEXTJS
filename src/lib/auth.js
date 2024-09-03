@@ -44,7 +44,13 @@ export const {
             async authorize(credentials){
                 try {
                     const user = await login(credentials);
-                    return user;
+                    return {
+                        id: user._id,
+                        username: user.username,
+                        email: user.email,
+                        img: user.img,
+                        isAdmin: user.isAdmin,
+                    };
                 } catch (error) {
                     return null;
                 }
@@ -52,7 +58,7 @@ export const {
         })
     ],
     callbacks: {
-        async signIn({ account, profile }) {
+        async signIn({user, account, profile }) {
             if (account.provider === "github") {
                 await ConnectDB();
                 try {
@@ -78,9 +84,6 @@ export const {
                 await ConnectDB();
                 try {
                     const user = await User.findOne({ email: profile.email });
-                    console.log('====================================');
-                    console.log(user);
-                    console.log('====================================');
                     if (!user) {
                         const generatedPassword =
                             Math.random().toString(36).slice(-8) +
